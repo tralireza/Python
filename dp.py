@@ -13,7 +13,7 @@ class Solution97:
 
       dp[0][0] = True
       for r in range(1, R+1):
-         dp[r][0] = dp[r-1] and s1[r-1] == s3[r-1]
+         dp[r][0] = dp[r-1][0] and s1[r-1] == s3[r-1]
       for c in range(1, C+1):
          dp[0][c] = dp[0][c-1] and s2[c-1] == s3[c-1]
 
