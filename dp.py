@@ -30,8 +30,30 @@ class Solution97:
         return dp[R][C]
 
 
+class Solution139:
+    """
+    139m Word Break
+    """
+
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        words = set(wordDict)
+
+        segment = [False] * (len(s) + 1)
+        segment[0] = True
+
+        for ls in range(1, len(s) + 1):
+            for w in words:
+                lw = len(w)
+                if ls - lw >= 0 and segment[ls - lw] and s[ls - lw:ls] == w:
+                    segment[ls] = True
+
+        return segment[-1]
+
+
 class Solution198:
-    """198m House Robber"""
+    """
+    198m House Robber
+    """
 
     def rob(self, nums: List[int]) -> int:
         if len(nums) == 1:
@@ -41,6 +63,9 @@ class Solution198:
         cash[0], cash[1] = nums[0], max(nums[0], nums[1])
         for i in range(2, len(nums)):
             cash[i] = max(cash[i - 2] + nums[i], cash[i - 1])
+
+        print(nums, " -> ", cash)
+
         return cash[-1]
 
 

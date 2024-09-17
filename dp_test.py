@@ -3,9 +3,18 @@ import dp as m
 
 def test_Solution97():
     """97m Interleaving String"""
+
     assert m.Solution97().isInterleaving("", "", "") is True
     assert m.Solution97().isInterleaving("aabcc", "dbbca", "aadbbcbcac") is True
     assert m.Solution97().isInterleaving("aabcc", "dbbca", "aadbbbaccc") is False
+
+
+def test_Solution139():
+    """
+    139m Word Break
+    """
+    assert m.Solution139().wordBreak("applepenapple", ["apple", "pen"]) is True
+    assert m.Solution139().wordBreak("catsandog", ["cats", "dog", "sand", "and", "cat"]) is False
 
 
 def test_Solution198():
