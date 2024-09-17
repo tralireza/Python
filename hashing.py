@@ -1,5 +1,9 @@
-#  Find the Longest Substring Containing Vowels in Even Counts
+""" Hashing Solutions """
+from typing import List
+
+
 class Solution1371:
+    """ Find the Longest Substring Containing Vowels in Even Counts """
     def findTheLongestSubstring(self, s: str) -> int:
         lMask = [0] * 26
         lMask[ord('a')-ord('a')] = 16
@@ -18,3 +22,14 @@ class Solution1371:
                 mMask[mask] = i
             xSub = max(i - mMask[mask], xSub)
         return xSub
+
+
+class Solution884:
+    """ Uncommon Words from Two Sentences """
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        from collections import Counter
+        counter = Counter(s1.split(' ') + s2.split(' '))
+
+        print(counter)
+
+        return [w for w in counter if counter[w] == 1]
