@@ -129,3 +129,22 @@ class Solution322:
         print(f'{amount}? {coins} -> {change}')
 
         return change[amount] if change[amount] != INF else -1
+
+
+class Solution646:
+    """
+    646m Maximum Length of Pair Chain
+    """
+
+    def findLongestChain(self, pairs: List[List[int]]) -> int:
+        pairs.sort(key=lambda lst: lst[1])
+
+        lchain = [1] * len(pairs)
+        for right in range(1, len(pairs)):
+            for left in range(0, right):
+                if pairs[right][0] > pairs[left][1]:
+                    lchain[right] = max(lchain[left]+1, lchain[right])
+
+        print(pairs, " -> ", lchain)
+
+        return max(lchain)

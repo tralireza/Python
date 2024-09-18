@@ -31,7 +31,6 @@ def test_Solution221():
 
 def test_Solution300():
     """ 300 Longest Increasing Subsequence """
-
     m.Solution300().lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]) == 4
     m.Solution300().lengthOfLIS([0, 1, 0, 3, 2, 3]) == 4
 
@@ -41,3 +40,9 @@ def test_Solution322():
     assert m.Solution322().coinChange([1, 2, 5], 11) == 3
     assert m.Solution322().coinChange([2], 3) == -1
     assert m.Solution322().coinChange([1], 0) == 0
+
+
+def test_Solution646():
+    """ 646m Maximum Length of Pair Chain """
+    m.Solution646().findLongestChain([[1, 2], [2, 3], [3, 4]]) == 2
+    m.Solution646().findLongestChain([[1, 2], [7, 8], [4, 5]]) == 3
