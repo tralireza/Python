@@ -92,6 +92,23 @@ class Solution221:
         return x * x
 
 
+class Solution300:
+    """
+    300m Longest Increasing Subsequence
+    """
+
+    def lengthOfLIS(slef, nums: List[int]) -> int:
+        lis = [1] * len(nums)
+        for right in range(1, len(lis)):
+            for left in range(0, right):
+                if nums[right] > nums[left]:
+                    lis[right] = max(lis[left]+1, lis[right])
+
+        print(lis)
+
+        return max(lis)
+
+
 class Solution322:
     """
     322m Coin Change

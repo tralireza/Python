@@ -29,6 +29,13 @@ def test_Solution221():
     assert m.Solution221().maximalSquare([["0", "1"], ["1", "0"]]) == 1
 
 
+def test_Solution300():
+    """ 300 Longest Increasing Subsequence """
+
+    m.Solution300().lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18]) == 4
+    m.Solution300().lengthOfLIS([0, 1, 0, 3, 2, 3]) == 4
+
+
 def test_Solution322():
     """ 322m Coin Change """
     assert m.Solution322().coinChange([1, 2, 5], 11) == 3
