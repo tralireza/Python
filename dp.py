@@ -6,7 +6,9 @@ from typing import List
 
 
 class Solution97:
-    """97m Interleaving String"""
+    """
+    97m Interleaving String
+    """
 
     def isInterleaving(self, s1: str, s2: str, s3: str) -> bool:
         R, C = len(s1), len(s2)
@@ -15,17 +17,17 @@ class Solution97:
         if R == 0 or C == 0:
             return s1 == s3 or s2 == s3
 
-        dp = [[False] * (C + 1) for _ in range(R + 1)]
+        dp = [[False] * (C+1) for _ in range(R+1)]
 
         dp[0][0] = True
-        for r in range(1, R + 1):
-            dp[r][0] = dp[r - 1][0] and s1[r - 1] == s3[r - 1]
-        for c in range(1, C + 1):
-            dp[0][c] = dp[0][c - 1] and s2[c - 1] == s3[c - 1]
+        for r in range(1, R+1):
+            dp[r][0] = dp[r-1][0] and s1[r-1] == s3[r-1]
+        for c in range(1, C+1):
+            dp[0][c] = dp[0][c-1] and s2[c-1] == s3[c-1]
 
-        for r in range(1, R + 1):
-            for c in range(1, C + 1):
-                dp[r][c] = dp[r - 1][c] and s1[r - 1] == s3[r + c - 1] or dp[r][c - 1] and s2[c - 1] == s3[r + c - 1]
+        for r in range(1, R+1):
+            for c in range(1, C+1):
+                dp[r][c] = dp[r-1][c] and s1[r-1] == s3[r+c-1] or dp[r][c-1] and s2[c-1] == s3[r+c-1]
 
         return dp[R][C]
 
@@ -70,7 +72,9 @@ class Solution198:
 
 
 class Solution221:
-    """221m Maximal Square"""
+    """
+    221m Maximal Square
+    """
 
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         Rows, Cols = len(matrix), len(matrix[0])
@@ -86,3 +90,25 @@ class Solution221:
         print(dp)
 
         return x * x
+
+
+class Solution322:
+    """
+    322m Coin Change
+    """
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        INF = float('inf')
+        change = [INF] * (amount+1)
+        change[0] = 0
+        for c in coins:
+            if c <= amount:
+                change[c] = 1
+
+        for t in range(1, amount+1):
+            for c in coins:
+                if t >= c:
+                    change[t] = min(change[t], change[t-c] + 1)
+
+        print(f'{amount}? {coins} -> {change}')
+
+        return change[amount] if change[amount] != INF else -1
