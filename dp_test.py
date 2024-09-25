@@ -46,3 +46,9 @@ def test_Solution646():
     """ 646m Maximum Length of Pair Chain """
     m.Solution646().findLongestChain([[1, 2], [2, 3], [3, 4]]) == 2
     m.Solution646().findLongestChain([[1, 2], [7, 8], [4, 5]]) == 3
+
+
+def test_Solution2707():
+    # 2707m Extra Characters in a String
+    m.Solution2707().minExtraChar("leetscode", ["leet", "code"]) == 1
+    m.Solution2707().minExtraChar("sayhelloworld", ["hello", "world"]) == 3

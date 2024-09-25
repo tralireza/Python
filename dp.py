@@ -113,6 +113,7 @@ class Solution322:
     """
     322m Coin Change
     """
+
     def coinChange(self, coins: List[int], amount: int) -> int:
         INF = float('inf')
         change = [INF] * (amount+1)
@@ -148,3 +149,22 @@ class Solution646:
         print(pairs, " -> ", lchain)
 
         return max(lchain)
+
+
+class Solution2707:
+    """
+    2707m Extra Characters in a String
+    """
+
+    def minExtraChar(self, s: str, dictionary: List[str]) -> int:
+        extra = [0]*(len(s)+1)
+
+        for start in range(len(s)-1, -1, -1):
+            extra[start] = 1 + extra[start+1]
+            for end in range(start+1, len(s)+1):
+                if s[start:end] in dictionary:
+                    extra[start] = min(extra[start], extra[end])
+
+        print(" ->", extra)
+
+        return extra[0]
