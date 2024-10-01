@@ -3,6 +3,19 @@
 from typing import List
 
 
+class Solution884:
+    """Uncommon Words from Two Sentences"""
+
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        from collections import Counter
+
+        counter = Counter(s1.split(" ") + s2.split(" "))
+
+        print(counter)
+
+        return [w for w in counter if counter[w] == 1]
+
+
 class Solution1371:
     """Find the Longest Substring Containing Vowels in Even Counts"""
 
@@ -26,14 +39,20 @@ class Solution1371:
         return xSub
 
 
-class Solution884:
-    """Uncommon Words from Two Sentences"""
+class Solution1497:
+    """Check If Array Pairs Are Divisible by k"""
 
-    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
-        from collections import Counter
+    def canArrange(self, arr: List[int], k: int) -> bool:
+        freq = [0]*k
+        for n in arr:
+            freq[(n % k + k) % k] += 1
 
-        counter = Counter(s1.split(" ") + s2.split(" "))
+        print(" ->", freq)
 
-        print(counter)
+        if freq[0] & 1:
+            return False
+        for i in range(1, k//2+1):
+            if freq[i] != freq[k-i]:
+                return False
 
-        return [w for w in counter if counter[w] == 1]
+        return True
