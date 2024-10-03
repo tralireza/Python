@@ -56,3 +56,30 @@ class Solution1497:
                 return False
 
         return True
+
+
+class Solution1590:
+    """
+    1590m Make Sum Divisible by P
+    """
+
+    def minSubarray(self, nums: List[int], p: int) -> int:
+        tsum = sum(nums)
+        t = tsum % p
+        if t == 0:
+            return 0
+
+        mem = {0: -1}
+        mlen = len(nums)
+
+        csum = 0
+        for i in range(len(nums)):
+            csum = (csum + nums[i]) % p
+            r = (csum - t + p) % p
+            if r in mem:
+                mlen = min(mlen, i - mem[r])
+            mem[csum] = i
+
+        print(mem)
+
+        return -1 if mlen == len(nums) else mlen
