@@ -40,7 +40,9 @@ class Solution1371:
 
 
 class Solution1497:
-    """Check If Array Pairs Are Divisible by k"""
+    """
+    1497m Check If Array Pairs Are Divisible by k
+    """
 
     def canArrange(self, arr: List[int], k: int) -> bool:
         freq = [0]*k
@@ -83,3 +85,24 @@ class Solution1590:
         print(mem)
 
         return -1 if mlen == len(nums) else mlen
+
+
+class Solution2491:
+    """
+    2491m Divide Player Into Teams of Equal Skill
+    """
+
+    def dividePlayers(self, skill: List[int]) -> int:
+        from collections import Counter
+
+        freq = Counter(skill)
+        t = max(skill) + min(skill)
+
+        print(" ->", freq)
+
+        chemistry = 0
+        for s in freq:
+            if t-s not in freq or freq[t-s] != freq[s]:
+                return -1
+            chemistry += s * (t-s) * freq[s]
+        return chemistry // 2
