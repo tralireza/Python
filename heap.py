@@ -15,6 +15,6 @@ class Solution2406:
             if heap and heap[0] < left:
                 heapq.heappop(heap)
             heapq.heappush(heap, right)
-            print(" ->", heap)
+            print(" ->", interval, " :: ", heap)
 
         return len(heap)
