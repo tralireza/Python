@@ -48,6 +48,12 @@ def test_Solution646():
     m.Solution646().findLongestChain([[1, 2], [7, 8], [4, 5]]) == 3
 
 
+def test_Solution2463():
+    # 2463h Minimum Total Distance Traveled
+    m.Solution2463().minimumTotalDistance([0, 4, 6], [[2, 2], [6, 2]]) == 4
+    m.Solution2463().minimumTotalDistance([1, -1], [[-2, 1], [2, 1]]) == 2
+
+
 def test_Solution2707():
     # 2707m Extra Characters in a String
     m.Solution2707().minExtraChar("leetscode", ["leet", "code"]) == 1

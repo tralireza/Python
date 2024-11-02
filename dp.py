@@ -151,6 +151,38 @@ class Solution646:
         return max(lchain)
 
 
+class Solution2463:
+    """
+    2463h Minimum Total Distance Traveled
+    """
+
+    def minimumTotalDistance(self, robot: List[int], factory: List[List[int]]) -> int:
+        robot.sort()
+        factory.sort(key=lambda x: x[0])
+
+        fixes = []
+        for f in factory:
+            for _ in range(f[1]):
+                fixes.append(f[0])
+
+        print(fixes)
+
+        R, F = len(robot), len(fixes)
+        dp = [[0] * (F+1) for _ in range(R+1)]
+
+        for r in range(R):
+            dp[r][F] = 1e12
+
+        for r in range(R-1, -1, -1):
+            for f in range(F-1, -1, -1):
+                assign = abs(robot[r]-fixes[f]) + dp[r+1][f+1]
+                skip = dp[r][f+1]
+
+                dp[r][f] = min(assign, skip)
+
+        return dp[0][0]
+
+
 class Solution2707:
     """
     2707m Extra Characters in a String
