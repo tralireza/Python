@@ -7,3 +7,6 @@ ignore-patterns = [".*_test.py"]
 min-similarity-lines=7
 
 [tool.pytest.ini_options]
+
+[tool.flake8]
+max-line-length = 127
