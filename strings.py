@@ -16,3 +16,23 @@ class Solution1813:
             deque2.pop()
 
         return not deque1 or not deque2
+
+
+class Solution3163:
+    def compressedString(self, word: str) -> str:
+        """
+        3163m String Compression III
+        """
+
+        compress = ""
+
+        prv, count = word[0], 1
+        for letter in word[1:]:
+            if prv != letter or count == 9:
+                compress += str(count) + prv
+                prv, count = letter, 1
+            else:
+                count += 1
+
+        compress += str(count) + prv
+        return compress
