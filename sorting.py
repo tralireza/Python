@@ -18,3 +18,23 @@ class Solution539:
         for i in range(len(Ms) - 1):
             r = min(Ms[i + 1] - Ms[i], r)
         return min(1440 - (Ms[-1] - Ms[0]), r)
+
+
+class Solution3011:
+    """
+    3011m Find if Array Can Be Sorted
+    """
+
+    def canSortArray(self, nums: List[int]) -> bool:
+        N = len(nums)
+
+        # BubbleSort
+        for i in range(N):
+            for j in range(N - i - 1):
+                if nums[j] > nums[j+1]:
+                    if bin(nums[j]).count("1") == bin(nums[j+1]).count("1"):
+                        nums[j], nums[j+1] = nums[j+1], nums[j]
+                    else:
+                        return False
+
+        return True
