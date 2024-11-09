@@ -18,3 +18,23 @@ class Solution2275:
             mask <<= 1
 
         return max(count)
+
+
+class Solution3133:
+    """
+    3133m Minimum Array End
+    """
+
+    def minEnd(self, n: int, x: int) -> int:
+        r = x
+
+        mask = 1
+        n -= 1
+        while n > 0:
+            if (x & mask) == 0:
+                r |= (n & 1) * mask
+                n >>= 1
+            mask <<= 1
+
+        print(" ->", r)
+        return r

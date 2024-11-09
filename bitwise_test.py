@@ -22,7 +22,13 @@ def test_Solution3133():
 
     assert BR(3, 4) == 6
     assert BR(2, 7) == 15
-    assert BR(6715154, 7193485) == 55012476815
 
-    print("TLE:")
+    print("O(N) :: TLE:")
+    assert BR(6715154, 7193485) == 55012476815  # TLE
     BR(69735293, 5563569)  # TLE
+
+    print("O(logN):")
+    assert m.Solution3133().minEnd(3, 4) == 6
+    assert m.Solution3133().minEnd(2, 7) == 15
+    assert m.Solution3133().minEnd(6715154, 7193485) == 55012476815
+    assert m.Solution3133().minEnd(69735293, 5563569) == 142821814265
