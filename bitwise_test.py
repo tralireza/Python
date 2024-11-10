@@ -8,6 +8,13 @@ def test_Solution2275():
     assert m.Solution2275().largestCombination([8, 8]) == 2
 
 
+def test_Solution3097():
+    # 3097m Shortest Subarray With OR at Least K II
+    assert m.Solution3097().minimumSubarrayLength([1, 2, 3], 2) == 1
+    assert m.Solution3097().minimumSubarrayLength([2, 1, 8], 10) == 3
+    assert m.Solution3097().minimumSubarrayLength([1, 2], 0) == 1
+
+
 def test_Solution3133():
     # 3133m Minimum Array End
     # 1 <= n, x <= 10^8
