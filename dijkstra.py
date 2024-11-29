@@ -17,6 +17,8 @@ class Solution2577:
         visited = set()
         pq = [(grid[0][0], 0, 0)]
         while pq:
+            print(" -> ", pq)
+
             time, r, c = heapq.heappop(pq)
             if (r, c) == (Rows-1, Cols-1):
                 return time
